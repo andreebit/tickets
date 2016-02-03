@@ -4,3 +4,6 @@ Homestead.yaml
 Homestead.json
 .env
 /nbproject
+/public/uploads/*
+!/public/uploads/events/images/originals/.empty
+!/public/uploads/events/banners/originals/.empty

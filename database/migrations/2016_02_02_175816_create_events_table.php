@@ -20,11 +20,11 @@ class CreateEventsTable extends Migration
             $table->string('description');
             $table->string('image');
             $table->string('banner');
-            $table->string('video');
             $table->string('summary');
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('address');
+            $table->dateTime('date_hour');
+            $table->string('address');            
             $table->timestamps();
             
             $table->foreign('category_id')->references('id')->on('categories');            

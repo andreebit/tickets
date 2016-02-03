@@ -1,0 +1,1 @@
+{"version":3,"sources":["global.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"all.js","sourcesContent":["var Global = {\n    init: function () {\n\n    }\n};\n\n$(function () {\n    Global.init();\n});"],"sourceRoot":"/source/"}
