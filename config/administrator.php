@@ -66,7 +66,7 @@ return array(
 	 *	)
 	 */
 	'menu' => array(
-            'categories', 'events'
+            'categories', 'events', 'prices'
         ),
 
 	/**

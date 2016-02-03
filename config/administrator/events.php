@@ -13,6 +13,11 @@ return array(
      */
     'columns' => array(
         'id',
+        'category' => array(
+            'title' => "Categoría",
+            'relationship' => 'category',
+            'select' => "(:table).name",
+        ),        
         'name' => array(
             'title' => 'Nombre'
         ),
@@ -30,6 +35,11 @@ return array(
      * The filter set
      */
     'filters' => array(
+        'category' => array(
+            'type' => 'relationship',
+            'title' => 'Categoría',
+            'name_field' => 'name'
+        ),
         'name' => array(
             'title' => 'Nombre',
         ),
