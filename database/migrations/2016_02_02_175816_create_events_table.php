@@ -14,7 +14,20 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('category_id')->unsigned();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('description');
+            $table->string('image');
+            $table->string('banner');
+            $table->string('video');
+            $table->string('summary');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->string('address');
             $table->timestamps();
+            
+            $table->foreign('category_id')->references('id')->on('categories');            
         });
     }
 
