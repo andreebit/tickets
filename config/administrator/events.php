@@ -59,25 +59,25 @@ return array(
             'num_options' => 5
         ),
         'image' => array(
-            'title' => 'Image',
+            'title' => 'Imagen',
             'type' => 'image',
             'location' => public_path() . '/uploads/events/images/originals/',
             'naming' => 'random',
             'length' => 20,
             'size_limit' => 2,
             'sizes' => array(
-                array(65, 57, 'crop', public_path() . '/uploads/events/images/', 100)
+                array(450, 450, 'crop', public_path() . '/uploads/events/images/', 100)
             )
         ),
         'banner' => array(
-            'title' => 'Image',
+            'title' => 'Banner',
             'type' => 'image',
             'location' => public_path() . '/uploads/events/banners/originals/',
             'naming' => 'random',
             'length' => 20,
             'size_limit' => 2,
             'sizes' => array(
-                array(65, 57, 'crop', public_path() . '/uploads/events/banners/', 100)
+                array(1500, 400, 'crop', public_path() . '/uploads/events/banners/', 100)
             )
         ),
         'date_hour' => array(
@@ -110,6 +110,8 @@ return array(
         ),
     ),
     'rules' => array(
+        'image' => 'required',
+        'banner' => 'required',
         'category_id' => 'required',
         'date_hour' => 'required',
         'name' => 'required',

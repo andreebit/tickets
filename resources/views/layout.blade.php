@@ -10,8 +10,21 @@
     </head>
     <body>
         <div id="wrapper">
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="/">
+                                <h2>Pase Libre</h2>
+                                <h5>Compra y disfruta</h5>
+                            </a>
+                        </div>
+                    </div>    
+                </div>
+            </header>
             @yield('content')
         </div>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>        
         <script src="{{ asset('assets/js/all.js') }}" type="text/javascript"></script>
     </body>

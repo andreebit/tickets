@@ -1,23 +1,51 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 03/02/2016, 06:59:02 AM
-    Author     : andree
-*/
+body {
+    background-color: #f1f1f1;
+}
+header {
+    background-color: #337ab7;
+    color: #fff;
+}
+header a,
+header a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+header h2 {
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+header h5 {
+    margin-top: 0px;
+    font-weight: 300;
+}
+#slider .img-responsive {
+    width: 100%;
+}
+.home-main-container {
+    margin-top: 40px;
+}
+.title-event {
+    text-align: center;
+    color: #2F6FAD;
+}
+.event-item {
+    margin-bottom: 15px;
+}
+.event-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
 
-
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 03/02/2016, 06:59:09 AM
-    Author     : andree
-*/
-
+    box-sizing: border-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.event-container .img-responsive {
+    display: inline-block;
+}
+.date-event {
+    margin-top: 10px;
+}
 
 /*# sourceMappingURL=all.css.map */

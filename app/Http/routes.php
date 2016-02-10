@@ -11,7 +11,14 @@
   |
  */
 
-Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
+$prefix = 'api/v1';
+Route::group(['namespace' => 'Api', 'prefix' => $prefix], function() {
+    Route::resource('categories', 'CategoryController');
+    Route::resource('events', 'EventController');
+    Route::resource('prices', 'PriceController');
+    Route::resource('tickets', 'TicketController');
+    Route::resource('users', 'UserController');
+});
 
 /*
   |--------------------------------------------------------------------------
@@ -25,5 +32,5 @@ Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
  */
 
 Route::group(['middleware' => ['web']], function () {
-    
+    Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
 });

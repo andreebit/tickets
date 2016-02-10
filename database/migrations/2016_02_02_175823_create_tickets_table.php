@@ -18,6 +18,7 @@ class CreateTicketsTable extends Migration
             $table->integer('event_id')->unsigned();
             $table->string('description');
             $table->decimal('price', 10, 2);            
+            $table->string('unique')->unique();            
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users');
