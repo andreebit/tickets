@@ -12,4 +12,14 @@ class Price extends Model
         return $this->belongsTo('App\Event');
     }
 
+    public function carts()
+    {
+        return $this->hasMany('App\Cart');
+    }
+    
+    public function tickets()
+    {
+        return $this->hasMany('App\Ticket');
+    }    
+
 }

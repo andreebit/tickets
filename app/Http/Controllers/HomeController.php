@@ -14,18 +14,15 @@ class HomeController extends Controller
 
     public function index()
     {
-        $slides = Slider::all();
-        $quantitySlides = count($slides);
-        $categories = Category::all();
-        $events = Event::getComingSoonEvents();
-        
-        return view('site.home.index', [
-            'slides' => $slides,
-            'categories' => $categories,
-            'quantity_slides' => $quantitySlides,
-            'events' => $events
-            ]
-        );
+
+        $data = [
+            'slides' => Slider::all(),
+            'categories' => Category::withEvents()->get(),
+            'events' => Event::getComingSoonEvents()
+        ];
+        $data['quantity_slides'] = count($data['slides']);
+
+        return view('site.home.index', $data);
     }
 
 }
