@@ -24,7 +24,7 @@ return array(
         'value' => array(
             'title' => 'Valor',
             'output' => function($value) {
-                return '$ ' . $value;
+                return trans('currency.symbol') . ' ' . $value;
             }
         )
     ),
@@ -55,7 +55,6 @@ return array(
         'value' => array(
             'type' => 'number',
             'title' => 'Valor',
-            'symbol' => '$',
             'decimals' => 2,
             'thousands_separator' => ',',
             'decimal_separator' => '.',

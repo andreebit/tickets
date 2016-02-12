@@ -44,6 +44,50 @@ header h5 {
 .event-container .img-responsive {
     display: inline-block;
 }
+.event-content {
+    background: #E0E0E0;
+}
 .date-event {
     margin-top: 10px;
+}
+.prices {
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.price-row {
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.price-row.last {
+    margin-bottom: 0px;
+    border: none;
+}
+.price-row p {
+    font-weight: bold;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.categories-left {
+    margin-bottom: 25px;
+}
+.event-data {
+    border-top: 1px solid #ccc;
+    padding: 10px 0px 20px 0px;
+    overflow: hidden;
+}
+.event-summary {
+    margin-bottom: 15px;
+}
+.event-data-label {
+    font-weight: bold;
+}
+.event-content h1 {
+    border-bottom: 1px solid #ccc;
+}
+.prices-block {
+    margin-bottom: 20px;
 }

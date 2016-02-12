@@ -16,7 +16,8 @@ class EventsController extends Controller
         if (!is_null($event)) {
             $data = [
                 'categories' => Category::withEvents()->get(),
-                'event' => $event
+                'event' => $event,
+                'prices' => $event->prices
             ];
 
             return view('site.events.show', $data);

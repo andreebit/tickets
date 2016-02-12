@@ -8,7 +8,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-3">
+        <div class="col-xs-12 col-sm-3 categories-left">
             <h3>Categorías</h3>
             <ul class="nav nav-pills nav-stacked">
                 @foreach($categories as $category)
@@ -18,10 +18,10 @@
         </div>
         <div class="col-xs-12 col-sm-9">            
             <div class="row">
-                <div class="col-xs-12 col-md-9 event-content">
+                <div class="col-xs-12 col-md-8 event-content">
                     <h1>{{ $event->name }}</h1>
-                    <div class="row">
-                        <div class="col-xs-12">
+                    <div>
+                        <div class="col-xs-12 row event-summary">
                             {{ $event->summary }}
                         </div>
                     </div>
@@ -33,15 +33,47 @@
                             {!! $event->description !!}
                         </div>
                     </div>
-                    <div class="row">
-
+                    <div class="event-data">
+                        <div class="row">
+                            <div class="col-xs-4 event-data-label">
+                                Fecha y hora:
+                            </div>                        
+                            <div class="col-xs-8">
+                                {{ $event->formattedTime() }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 event-data-label">
+                                Lugar:
+                            </div>                        
+                            <div class="col-xs-8">
+                                {{ $event->address }}
+                            </div>
+                        </div> 
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-md-3">
+                <div class="col-xs-12 col-md-4 prices-block">
                     <h3>No te quedes fuera</h3>
-                    <div class="row">
-                        venta de tickets
+                    <div class="prices">
+                        @foreach($prices as $index => $price)
+                        <div class="price-row{{ ($index == count($prices) - 1)? ' last' : '' }}">
+                            <div class="col-xs-8 row">
+                                <div class="col-xs-12">
+                                    <p>{{ $price->description }}</p>
+                                </div>
+                                <div class="col-xs-12">
+                                    ( {{ trans('currency.symbol') }} {{ $price->value }} )
+                                </div>                            
+
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="#" class="btn btn-warning">
+                                    Comprar
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

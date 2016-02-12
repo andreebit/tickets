@@ -66,7 +66,7 @@ return array(
             'length' => 20,
             'size_limit' => 2,
             'sizes' => array(
-                array(450, 450, 'crop', public_path() . '/uploads/events/images/', 100)
+                array(750, 450, 'crop', public_path() . '/uploads/events/images/', 100)
             )
         ),
         'banner' => array(
