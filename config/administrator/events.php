@@ -27,8 +27,8 @@ return array(
         'summary' => array(
             'title' => 'Resumen'
         ),
-        'address' => array(
-            'title' => 'Dirección'
+        'place' => array(
+            'title' => 'Lugar'
         )
     ),
     /**
@@ -43,6 +43,9 @@ return array(
         'name' => array(
             'title' => 'Nombre',
         ),
+        'place' => array(
+            'title' => 'Lugar',
+        ),        
         'date_hour' => array(
             'title' => 'Fecha y hora',
             'type' => 'datetime'
@@ -104,6 +107,10 @@ return array(
             'title' => 'Longitud',
             'type' => 'text',
         ),
+        'place' => array(
+            'title' => 'Lugar',
+            'type' => 'text',
+        ),        
         'address' => array(
             'title' => 'Dirección',
             'type' => 'textarea',
@@ -117,6 +124,7 @@ return array(
         'name' => 'required',
         'summary' => 'required',
         'description' => 'required',
+        'place' => 'required',
         'address' => 'required'
     )
 );

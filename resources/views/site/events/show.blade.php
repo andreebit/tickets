@@ -47,14 +47,22 @@
                                 Lugar:
                             </div>                        
                             <div class="col-xs-8">
-                                {{ $event->address }}
+                                {{ $event->place }}
                             </div>
                         </div> 
+                        <div class="row">
+                            <div class="col-xs-4 event-data-label">
+                                Dirección:
+                            </div>                        
+                            <div class="col-xs-8">
+                                {{ $event->address }}
+                            </div>
+                        </div>  
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4 prices-block">
-                    <h3>No te quedes fuera</h3>
+                    <h3>¡No te quedes fuera!</h3>
                     <div class="prices">
                         @foreach($prices as $index => $price)
                         <div class="price-row{{ ($index == count($prices) - 1)? ' last' : '' }}">
