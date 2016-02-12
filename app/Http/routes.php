@@ -34,5 +34,7 @@ Route::group(['namespace' => 'Api', 'prefix' => $prefix], function() {
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
     Route::get('/c/{slug}', ['as' => 'events.list-by-category', 'uses' => 'EventsController@listByCategory']);
-    Route::get('/e/{slug}', ['as' => 'events.show', 'uses' => 'EventsController@show']);    
+    Route::get('/e/{slug}', ['as' => 'events.show', 'uses' => 'EventsController@show']);
+    Route::get('/acceder', ['as' => 'user.autologin', 'uses' => 'UserController@autologin']);
+    Route::get('/salir', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
 });

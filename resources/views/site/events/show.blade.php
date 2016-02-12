@@ -79,9 +79,11 @@
 
                             </div>
                             <div class="col-xs-4">
+                                @if(!is_null($user))
                                 <a href="#" class="btn btn-warning">
                                     Comprar
                                 </a>
+                                @endif
                             </div>
                         </div>
                         @endforeach

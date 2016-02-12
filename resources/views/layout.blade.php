@@ -20,7 +20,11 @@
                             </a>
                         </div>
                         <div class="col-xs-12 col-sm-3 login-link-cntr">
-                            <a href="#" class="login-link btn btn-default col-xs-12 col-sm-8">Acceder</a>
+                            @if(!is_null($user))
+                                <a href="{{ route('user.logout') }}" class="login-link btn btn-default col-xs-12 col-sm-8">Salir</a>
+                            @else
+                                <a href="{{ route('user.autologin') }}" class="login-link btn btn-default col-xs-12 col-sm-8">Acceder</a>
+                            @endif
                         </div>
                     </div>    
                 </div>

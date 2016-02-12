@@ -23,6 +23,6 @@ class HomeController extends Controller
         $data['quantity_slides'] = count($data['slides']);
 
         return view('site.home.index', $data);
-    }
+    }   
 
 }
