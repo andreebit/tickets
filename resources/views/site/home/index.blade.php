@@ -54,7 +54,7 @@
                             <h4 class="title-event">{{ $event->name }}</h4>
                             <img class="img-responsive" src="{{ $event->imageFullPath() }}" alt="{{ $event->name }}">
                             <p class="date-event">{{ $event->formattedTime() }}</p>
-                            <p>{{ $event->summary }}</p>
+                            <p>{{ $event->place }}</p>
                         </a>
                     </div>
                 </div>

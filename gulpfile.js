@@ -18,5 +18,8 @@ elixir(function(mix) {
     ],  'public/assets/css/all.css')
     .scripts([
         'global.js'
-    ],  'public/assets/js/all.js');
+    ],  'public/assets/js/all.js')
+    .scripts([
+        'gmaps.js'
+    ],  'public/assets/js/gmaps.min.js');
 });

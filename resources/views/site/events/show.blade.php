@@ -57,12 +57,15 @@
                             <div class="col-xs-8">
                                 {{ $event->address }}
                             </div>
-                        </div>  
+                        </div>
+                        <div class="row map-container">
+                            <div id="map"></div>
+                        </div>                            
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-md-4 prices-block">
-                    <h3>¡No te quedes fuera!</h3>
+                    <h3>Entradas disponibles</h3>
                     <div class="prices">
                         @foreach($prices as $index => $price)
                         <div class="price-row{{ ($index == count($prices) - 1)? ' last' : '' }}">
@@ -88,4 +91,21 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="//maps.google.com/maps/api/js"></script>
+<script type="text/javascript" src="{{ asset('assets/js/gmaps.min.js') }}"></script>
+<script type="text/javascript">
+var map = new GMaps({
+    div: '#map',
+    lat: {{$event->latitude}},
+    lng: {{$event->longitude}}
+});
+map.addMarker({
+    lat: {{$event->latitude}},
+    lng: {{$event->longitude}},
+    title: '{{ $event->place }}',
+    infoWindow: {
+        content: '{{ $event->address }}'
+    }
+});
+</script>
 @stop

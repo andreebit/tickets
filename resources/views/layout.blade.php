@@ -13,11 +13,14 @@
             <header>
                 <div class="container">
                     <div class="row">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 col-sm-9">
                             <a href="/">
                                 <h2>Pase Libre</h2>
                                 <h5>Compra y disfruta</h5>
                             </a>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 login-link-cntr">
+                            <a href="#" class="login-link btn btn-default col-xs-12 col-sm-8">Acceder</a>
                         </div>
                     </div>    
                 </div>

@@ -47,8 +47,16 @@ header h5 {
 .event-content {
     background: #E0E0E0;
 }
+.event-container a:hover {
+    text-decoration: none;
+}
+.event-container a p,
+.event-container a:hover p {
+    color: #000;
+    margin: 0px;
+}
 .date-event {
-    margin-top: 10px;
+    margin-top: 10px !important;
 }
 .prices {
     border: 1px solid #ccc;
@@ -91,4 +99,19 @@ header h5 {
 }
 .prices-block {
     margin-bottom: 20px;
+}
+#map {
+    height: 400px;
+}
+.map-container {
+    margin-top: 15px;
+}
+.login-link-cntr {
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+.login-link {
+    margin-top: 18px;
+    display: inline-block;
+    float: right;
 }
