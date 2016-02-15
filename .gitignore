@@ -1,14 +1,9 @@
-vendor/
-node_modules/
-
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
-
-# Laravel 5 & Lumen specific
-bootstrap/cache/
-storage/
-.env.*.php
-.env.php
+/node_modules
+Homestead.yaml
+Homestead.json
 .env
-.env.example
+/nbproject
+/public/uploads/*
+!/public/uploads/events/images/originals/.empty
+!/public/uploads/events/banners/originals/.empty
+!/public/uploads/sliders/originals/.empty

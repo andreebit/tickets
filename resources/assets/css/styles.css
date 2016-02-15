@@ -1,0 +1,117 @@
+body {
+    background-color: #f1f1f1;
+}
+header {
+    background-color: #337ab7;
+    color: #fff;
+}
+header a,
+header a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+header h2 {
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+header h5 {
+    margin-top: 0px;
+    font-weight: 300;
+}
+#slider .img-responsive {
+    width: 100%;
+}
+.home-main-container {
+    margin-top: 40px;
+}
+.title-event {
+    text-align: center;
+    color: #2F6FAD;
+}
+.event-item {
+    margin-bottom: 15px;
+}
+.event-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+
+    box-sizing: border-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.event-container .img-responsive {
+    display: inline-block;
+}
+.event-content {
+    background: #E0E0E0;
+}
+.event-container a:hover {
+    text-decoration: none;
+}
+.event-container a p,
+.event-container a:hover p {
+    color: #000;
+    margin: 0px;
+}
+.date-event {
+    margin-top: 10px !important;
+}
+.prices {
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.price-row {
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.price-row.last {
+    margin-bottom: 0px;
+    border: none;
+}
+.price-row p {
+    font-weight: bold;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.categories-left {
+    margin-bottom: 25px;
+}
+.event-data {
+    border-top: 1px solid #ccc;
+    padding: 10px 0px 20px 0px;
+    overflow: hidden;
+}
+.event-summary {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+.event-data-label {
+    font-weight: bold;
+}
+.event-content h1 {
+    border-bottom: 1px solid #ccc;
+}
+.prices-block {
+    margin-bottom: 20px;
+}
+#map {
+    height: 400px;
+}
+.map-container {
+    margin-top: 15px;
+}
+.login-link-cntr {
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+.login-link {
+    margin-top: 18px;
+    display: inline-block;
+    float: right;
+}
