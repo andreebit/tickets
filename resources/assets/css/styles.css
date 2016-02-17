@@ -35,6 +35,7 @@ header h5 {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
+    min-height: 300px;
 
     box-sizing: border-box;
     -webkit-border-radius: 3px;

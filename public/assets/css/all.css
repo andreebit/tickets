@@ -35,6 +35,7 @@ header h5 {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
+    min-height: 300px;
 
     box-sizing: border-box;
     -webkit-border-radius: 3px;
@@ -114,6 +115,9 @@ header h5 {
     margin-top: 18px;
     display: inline-block;
     float: right;
+}
+.img-full-width {
+    width: 100%;
 }
 
 /*# sourceMappingURL=all.css.map */
