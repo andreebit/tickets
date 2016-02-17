@@ -35,7 +35,7 @@
                                     <tr>
                                         <td>{{ $ticket->event->name }}</td>
                                         <td>{{ $ticket->description }}</td>
-                                        <td>{{ $ticket->price }}</td>
+                                        <td>$ {{ $ticket->price }}</td>
                                         <td>{{ $ticket->quantity }}</td>
                                     </tr>
                                 </tbody>
