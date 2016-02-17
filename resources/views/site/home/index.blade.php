@@ -15,7 +15,7 @@
             <div class="carousel-inner" role="listbox">
                 @foreach($slides as $index => $slide)
                 <div class="item {{ ($index == 0)? 'active' : '' }}">
-                    <img class="img-responsive" src="{{ $slide->imageFullPath() }}" alt="{{ $slide->title }}">
+                    <img class="img-responsive img-full-width" src="{{ $slide->imageFullPath() }}" alt="{{ $slide->title }}">
                     <div class="carousel-caption">
                         {{ $slide->title }}
                     </div>

@@ -34,5 +34,16 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Cart');
     }    
+    
+    public function getTotalCartItemsAttribute() {
+        $carts = $this->carts()->get();
+        
+        $total = 0;        
+        foreach ($carts as $cart) {
+            $total += $cart->quantity;
+        }
+        
+        return $total;
+    }
 
 }

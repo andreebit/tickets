@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <img src="{{ $event->bannerFullPath() }}" class="img-responsive">
+        <img src="{{ $event->bannerFullPath() }}" class="img-responsive img-full-width">
     </div>
 </div>
 <div class="container">

@@ -115,3 +115,6 @@ header h5 {
     display: inline-block;
     float: right;
 }
+.img-full-width {
+    width: 100%;
+}

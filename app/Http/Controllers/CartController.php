@@ -20,12 +20,16 @@ class CartController extends Controller
 
     public function add($priceId)
     {
-        $cart = new \App\Cart();
-        $cart->price_id = $priceId;
-        $cart->user_id = $this->user()->id;
-        $cart->quantity = 1;
+        $cart = \App\Cart::whereUserIdAndPriceId($this->user()->id, $priceId)->first();
+        if (is_null($cart)) {
+            $cart = new \App\Cart();
+            $cart->price_id = $priceId;
+            $cart->user_id = $this->user()->id;
+            $cart->quantity = 1;
+        } else {
+            $cart->quantity = $cart->quantity + 1;
+        }
         $cart->save();
-
         return redirect()->back();
     }
 

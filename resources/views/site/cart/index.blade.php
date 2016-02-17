@@ -15,7 +15,7 @@
             <tbody>
                 @foreach($carts as $cart)
                 <tr>
-                    <td>{{ $cart->price->description}} para {{ $cart->price->event->name }}</td>
+                    <td>{{ $cart->price->description}} - {{ $cart->price->event->name }}</td>
                     <td>$ {{ $cart->price->value }}</td>
                     <td>{{ $cart->quantity }}</td>
                     <td><a href="{{ route('cart.delete', ['cart_id' => $cart->id]) }}">Eliminar</a></td>
