@@ -13,7 +13,7 @@ class CartController extends Controller
     {
         $carts = \App\Cart::whereUserId($this->user()->id)->get();
         if (!count($carts)) {
-            return redirect(route('home.index'));
+            return redirect()->back();
         }
         return view('site.cart.index', compact('carts'));
     }

@@ -13,7 +13,7 @@ class CheckoutController extends Controller
     {
         $carts = \App\Cart::whereUserId($this->user()->id)->get();
         if (!count($carts)) {
-            return redirect(route('home.index'));
+            return redirect()->back();
         }
         return view('site.checkout.index', compact('carts'));
     }
@@ -23,7 +23,7 @@ class CheckoutController extends Controller
 
         $carts = \App\Cart::whereUserId($this->user()->id)->get();
         if (!count($carts)) {
-            return redirect(route('home.index'));
+            return redirect()->back();
         }
 
         try {

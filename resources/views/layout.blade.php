@@ -21,9 +21,19 @@
                         </div>
                         <div class="col-xs-12 col-sm-3 login-link-cntr">
                             @if(!is_null($user))
-                                <a href="{{ route('cart.index') }}" class="login-link btn btn-default col-xs-12 col-sm-8">{{ $user->name }} ( {{ $user->total_cart_items }} )</a>
+                            <div class="dropdown login-link col-xs-12 col-sm-8">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    {{ $user->name }} ( {{ $user->total_cart_items }} )
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="{{ route('cart.index') }}">Carrito ( {{ $user->total_cart_items }} items )</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Mis compras</a></li>                                    
+                                </ul>
+                            </div>
                             @else
-                                <a href="{{ route('user.autologin') }}" class="login-link btn btn-default col-xs-12 col-sm-8">Acceder</a>
+                            <a href="{{ route('user.autologin') }}" class="login-link btn btn-default col-xs-12 col-sm-8">Acceder</a>
                             @endif
                         </div>
                     </div>    
