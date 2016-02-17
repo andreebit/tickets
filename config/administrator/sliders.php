@@ -44,6 +44,10 @@ return array(
             'title' => 'Título',
             'type' => 'text',
         ),        
+        'url' => array(
+            'title' => 'URL',
+            'type' => 'text',
+        ),                
     ),
     'rules' => array(
         'title' => 'required',
