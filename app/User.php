@@ -29,20 +29,33 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Order');
     }
-    
+
     public function carts()
     {
         return $this->hasMany('App\Cart');
-    }    
-    
-    public function getTotalCartItemsAttribute() {
+    }
+
+    public function getTotalCartItemsAttribute()
+    {
         $carts = $this->carts()->get();
-        
-        $total = 0;        
+
+        $total = 0;
         foreach ($carts as $cart) {
             $total += $cart->quantity;
         }
-        
+
+        return $total;
+    }
+
+    public function getTotalCartAmountAttribute()
+    {
+        $carts = $this->carts()->get();
+
+        $total = 0;
+        foreach ($carts as $cart) {
+            $total += $cart->price->value;
+        }
+
         return $total;
     }
 

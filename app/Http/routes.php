@@ -36,8 +36,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/c/{slug}', ['as' => 'events.list-by-category', 'uses' => 'EventsController@listByCategory']);
     Route::get('/e/{slug}', ['as' => 'events.show', 'uses' => 'EventsController@show']);
     Route::get('/acceder', ['as' => 'user.autologin', 'uses' => 'UserController@autologin']);
-    Route::get('/salir', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
-    Route::get('/carrito', ['as' => 'cart.index', 'uses' => 'CartController@index']);
-    Route::get('/agregar-carrito/{price_id}', ['as' => 'cart.add', 'uses' => 'CartController@add']);
-    Route::get('/eliminar-carrito/{cart_id}', ['as' => 'cart.delete', 'uses' => 'CartController@delete']);
+    Route::group(['middleware' => 'auth'], function() {
+        Route::get('/salir', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
+        Route::get('/carrito', ['as' => 'cart.index', 'uses' => 'CartController@index']);
+        Route::get('/agregar-carrito/{price_id}', ['as' => 'cart.add', 'uses' => 'CartController@add']);
+        Route::get('/eliminar-carrito/{cart_id}', ['as' => 'cart.delete', 'uses' => 'CartController@delete']);
+        Route::get('/checkout', ['as' => 'checkout.index', 'uses' => 'CheckoutController@index']);
+    });
 });
