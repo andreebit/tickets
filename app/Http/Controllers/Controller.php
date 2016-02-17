@@ -14,9 +14,17 @@ class Controller extends BaseController
         DispatchesJobs,
         ValidatesRequests;
 
+    private $user;
+
     public function __construct()
     {
-        \View::share('user', \Auth::user());
+        $this->user = \Auth::user();
+        \View::share('user', $this->user);
+    }
+
+    protected function user()
+    {
+        return $this->user;
     }
 
 }

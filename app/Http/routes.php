@@ -37,4 +37,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/e/{slug}', ['as' => 'events.show', 'uses' => 'EventsController@show']);
     Route::get('/acceder', ['as' => 'user.autologin', 'uses' => 'UserController@autologin']);
     Route::get('/salir', ['as' => 'user.logout', 'uses' => 'UserController@logout']);
+    Route::get('/carrito', ['as' => 'cart.index', 'uses' => 'CartController@index']);
+    Route::get('/agregar-carrito/{price_id}', ['as' => 'cart.add', 'uses' => 'CartController@add']);
+    Route::get('/eliminar-carrito/{cart_id}', ['as' => 'cart.delete', 'uses' => 'CartController@delete']);
 });

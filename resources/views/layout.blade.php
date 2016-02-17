@@ -22,6 +22,7 @@
                         <div class="col-xs-12 col-sm-3 login-link-cntr">
                             @if(!is_null($user))
                                 <a href="{{ route('user.logout') }}" class="login-link btn btn-default col-xs-12 col-sm-8">{{ $user->name }}</a>
+                                <a href="{{ route('cart.index') }}" class="login-link btn btn-default col-xs-12 col-sm-8">Carrito</a>
                             @else
                                 <a href="{{ route('user.autologin') }}" class="login-link btn btn-default col-xs-12 col-sm-8">Acceder</a>
                             @endif

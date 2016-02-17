@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-xs-4">
                                 @if(!is_null($user))
-                                <a href="#" class="btn btn-warning">
+                                <a href="{{ route('cart.add', ['price_id' => $price->id]) }}" class="btn btn-warning">
                                     Comprar
                                 </a>
                                 @endif
