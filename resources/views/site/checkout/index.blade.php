@@ -3,7 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <table class="table">
+        <h2>Checkout</h2>
+        <table class="table table-striped" style="margin-top: 20px">
             <thead>
                 <tr>
                     <th>Entrada</th>
@@ -25,7 +26,7 @@
                 </tr>                                
                 <tr>
                     <td colspan="2">&nbsp;</td>
-                    <td><a class="btn btn-success" href="{{ route('checkout.index') }}">Completar Pago</a></td>
+                    <td><a class="btn btn-success" href="{{ route('checkout.complete') }}">Completar Pago</a></td>
                 </tr>                
             </tbody>
         </table>

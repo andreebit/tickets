@@ -3,7 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <table class="table">
+        <h2>Carrito</h2>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Entrada</th>

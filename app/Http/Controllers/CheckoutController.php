@@ -18,4 +18,9 @@ class CheckoutController extends Controller
         return view('site.checkout.index', compact('carts'));
     }
 
+    public function complete()
+    {
+        
+    }
+
 }

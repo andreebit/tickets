@@ -53,7 +53,7 @@ class User extends Authenticatable
 
         $total = 0;
         foreach ($carts as $cart) {
-            $total += $cart->price->value;
+            $total += ($cart->price->value * $cart->quantity);
         }
 
         return $total;
