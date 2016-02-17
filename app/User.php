@@ -59,4 +59,16 @@ class User extends Authenticatable
         return $total;
     }
 
+    public function getCartDescriptionAttribute()
+    {
+        $carts = $this->carts()->get();
+
+        $description = $this->name . ': - ';
+        foreach ($carts as $cart) {
+            $description .= ($cart->price->description . ' - ');
+        }
+
+        return $description;
+    }
+
 }
