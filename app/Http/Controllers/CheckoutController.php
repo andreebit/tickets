@@ -75,13 +75,17 @@ class CheckoutController extends Controller
             $payuResponse = \PayUPayments::doAuthorizationAndCapture($parameters);
 
             if (isset($payuResponse->code) && $payuResponse->code == 'SUCCESS') {
-                if ($this->generateTickets($order, $payuResponse)) {
-                    return redirect(route('user.orders'));
+                if (isset($payuResponse->transactionResponse->state) && $payuResponse->transactionResponse->state == 'APPROVED') {
+                    if ($this->generateTickets($order, $payuResponse)) {
+                        return redirect(route('user.orders'));
+                    }
                 }
             } else {
                 die('Ocurrió un error mientras se procesaba el pago');
             }
         } catch (\Exception $ex) {
+            $order->data = $ex->getMessage();
+            $order->save();
             die($ex->getMessage());
         }
     }
