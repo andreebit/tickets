@@ -20,7 +20,19 @@ class CheckoutController extends Controller
 
     public function complete()
     {
+
+        $carts = \App\Cart::whereUserId($this->user()->id)->get();
+        if (!count($carts)) {
+            return redirect(route('home.index'));
+        }
+
         try {
+
+            $order = new \App\Order();
+            $order->user_id = $this->user()->id;
+            $order->date_time = date('Y-m-d H:i:s');
+            $order->save();
+
             //documentación
             //http://developers.payulatam.com/es/api/sandbox.html
             //https://github.com/mauricio067/integracion-payu-php
@@ -41,7 +53,7 @@ class CheckoutController extends Controller
 
             //Parámetros básicos de pago
             $parameters = array(
-                \PayUParameters::REFERENCE_CODE => rand(1, 100000000),
+                \PayUParameters::REFERENCE_CODE => 'ORD' . str_pad($order->id, 10, '0', STR_PAD_LEFT),
                 \PayUParameters::COUNTRY => \PayUCountries::PE,
                 \PayUParameters::ACCOUNT_ID => "500546",
                 \PayUParameters::CURRENCY => "USD",
@@ -62,21 +74,36 @@ class CheckoutController extends Controller
             $payuResponse = \PayUPayments::doAuthorizationAndCapture($parameters);
 
             if (isset($payuResponse->code) && $payuResponse->code == 'SUCCESS') {
-                $this->generateTickets($payuResponse->transactionResponse->transactionId);
+                if ($this->generateTickets($order, $payuResponse)) {
+                    echo 'tickets creados';
+                }
             } else {
                 die('Ocurrió un error mientras se procesaba el pago');
             }
-            
         } catch (\Exception $ex) {
             die($ex->getMessage());
         }
     }
 
-    private function generateTickets($transactionId)
+    private function generateTickets(\App\Order $order, $payuResponse)
     {
-        $order = new \App\Order();
-        
-        dd($transactionId);
+        $order->data = json_encode($payuResponse);
+        $order->save();
+
+        $carts = $this->user()->carts()->get();
+        foreach ($carts as $cart) {
+            $ticket = new \App\Ticket();
+            $ticket->order_id = $order->id;
+            $ticket->event_id = $cart->price->event->id;
+            $ticket->price = $cart->price->value;
+            $ticket->description = $cart->price->description;
+            $ticket->quantity = $cart->quantity;
+            $ticket->unique = ('871fd7278c6b07b7a9777c42ab3a1a55' . md5($order->id) . md5($cart->price->event->id) . md5($cart->price->id));
+            $ticket->save();
+        }
+        $this->user()->carts()->delete();
+
+        return true;
     }
 
 }
