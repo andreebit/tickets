@@ -13,4 +13,12 @@ class Order extends Model
     public function tickets() {
         return $this->hasMany('App\Ticket');
     }
+    
+    public function scopeWithData($query) {
+        return $query->whereNotNull('data')->where('data', '<>', '');
+    }
+    
+    public function scopeWithTickets($query) {
+        $query->has('tickets');
+    }
 }

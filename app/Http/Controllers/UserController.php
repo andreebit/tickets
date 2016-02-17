@@ -21,4 +21,10 @@ class UserController extends Controller
         return redirect()->back();
     }
 
+    public function orders()
+    {
+        $orders = $this->user()->orders()->withData()->withTickets()->orderBy('id', 'DESC')->get();
+        return view('site.user.orders', compact('orders'));
+    }
+
 }

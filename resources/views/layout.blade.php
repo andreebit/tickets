@@ -29,7 +29,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li class="col-xs-12 col-sm-8" style="width: 100%"><a href="{{ route('cart.index') }}">Carrito ( {{ $user->total_cart_items }} items )</a></li>
                                     <li role="separator" class="divider col-xs-12 col-sm-8" style="width: 100%"></li>
-                                    <li class="col-xs-12 col-sm-8" style="width: 100%"><a href="#">Mis compras</a></li>                                    
+                                    <li class="col-xs-12 col-sm-8" style="width: 100%"><a href="{{ route('user.orders') }}">Mis compras</a></li>                                    
                                     <li role="separator" class="divider col-xs-12 col-sm-8" style="width: 100%"></li>
                                     <li class="col-xs-12 col-sm-8" style="width: 100%"><a href="{{ route('user.logout') }}">Salir</a></li>                                    
                                 </ul>

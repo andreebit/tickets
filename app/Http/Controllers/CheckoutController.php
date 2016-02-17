@@ -76,7 +76,7 @@ class CheckoutController extends Controller
 
             if (isset($payuResponse->code) && $payuResponse->code == 'SUCCESS') {
                 if ($this->generateTickets($order, $payuResponse)) {
-                    echo 'tickets creados';
+                    return redirect(route('user.orders'));
                 }
             } else {
                 die('Ocurrió un error mientras se procesaba el pago');
