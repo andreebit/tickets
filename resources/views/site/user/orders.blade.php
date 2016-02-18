@@ -38,7 +38,7 @@
                                         <td>{{ $ticket->description }}</td>
                                         <td>$ {{ $ticket->price }}</td>
                                         <td>{{ $ticket->quantity }}</td>
-                                        <td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate($ticket->quantity)) !!}"></td>
+                                        <td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate($ticket->unique)) !!}"></td>
                                     </tr>
                                 </tbody>
                                 @endforeach
