@@ -27,7 +27,8 @@
                                         <th>Evento</th>
                                         <th>Descripción</th>
                                         <th>Precio</th>
-                                        <th>Cantidad</th>                        
+                                        <th>Cantidad</th> 
+                                        <th>QR</th> 
                                     </tr>
                                 </thead>
                                 @foreach($order->tickets()->get() as $ticket)
@@ -37,6 +38,7 @@
                                         <td>{{ $ticket->description }}</td>
                                         <td>$ {{ $ticket->price }}</td>
                                         <td>{{ $ticket->quantity }}</td>
+                                        <td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate($ticket->quantity)) !!}"></td>
                                     </tr>
                                 </tbody>
                                 @endforeach
