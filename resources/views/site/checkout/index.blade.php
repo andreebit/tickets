@@ -27,13 +27,16 @@
                     </tr>                                                
                 </tbody>
             </table>
-            <form method="post" action="{{ route('checkout.complete') }}" class="col-xs-6 col-lg-offset-3">
+            <form method="post" action="{{ route('checkout.complete') }}" class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <table class="table table-responsive">
                     <tbody>
                         <tr>
                             <td colspan="2" style="text-align: center">Datos de la tarjeta</td>
                         </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center">Pagos procesados por Payu Latam</td>
+                        </tr>                        
                         <tr>
                             <td>Nombre</td>
                             <td><input type="text" value="APPROVED" name="name" class="col-xs-12"></td>
