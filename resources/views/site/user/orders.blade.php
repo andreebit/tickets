@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h2>Mis compras</h2>
-            <table class="table table-striped">
+            <table class="table table-striped  table-responsive">
                 <thead>
                     <tr>
                         <th># Pedido</th>
@@ -21,7 +21,7 @@
                     <tr>
                         <td colspan="2">
                             Tickets comprados
-                            <table class="table table-bordered">
+                            <table class="table table-bordered  table-responsive">
                                 <thead>
                                     <tr>
                                         <th>Evento</th>

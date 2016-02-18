@@ -18,7 +18,7 @@ class CheckoutController extends Controller
         return view('site.checkout.index', compact('carts'));
     }
 
-    public function complete()
+    public function complete(Request $request)
     {
 
         $carts = \App\Cart::whereUserId($this->user()->id)->get();
@@ -26,6 +26,7 @@ class CheckoutController extends Controller
             return redirect()->back();
         }
 
+        $payuResponse = "";
         try {
 
             $order = new \App\Order();
@@ -65,28 +66,33 @@ class CheckoutController extends Controller
 
             //Datos tarjeta de crédito
             $parameters[\PayUParameters::INSTALLMENTS_NUMBER] = 1; //Número de cuotas
-            $parameters[\PayUParameters::PAYER_NAME] = 'APPROVED'; //$this->user()->name;
-            $parameters[\PayUParameters::CREDIT_CARD_NUMBER] = '4111111111111111';
-            $parameters[\PayUParameters::CREDIT_CARD_EXPIRATION_DATE] = "2018/08";
-            $parameters[\PayUParameters::CREDIT_CARD_SECURITY_CODE] = '123';
+            $parameters[\PayUParameters::PAYER_NAME] = $request->get('name', ''); //$this->user()->name;
+            $parameters[\PayUParameters::CREDIT_CARD_NUMBER] = $request->get('number', '');
+            $parameters[\PayUParameters::CREDIT_CARD_EXPIRATION_DATE] = $request->get('expiration', '');
+            $parameters[\PayUParameters::CREDIT_CARD_SECURITY_CODE] = $request->get('cvv', '');
             $parameters[\PayUParameters::PROCESS_WITHOUT_CVV2] = false;
             $parameters[\PayUParameters::PAYMENT_METHOD] = 'VISA';
 
             $payuResponse = \PayUPayments::doAuthorizationAndCapture($parameters);
-
             if (isset($payuResponse->code) && $payuResponse->code == 'SUCCESS') {
                 if (isset($payuResponse->transactionResponse->state) && $payuResponse->transactionResponse->state == 'APPROVED') {
                     if ($this->generateTickets($order, $payuResponse)) {
                         return redirect(route('user.orders'));
                     }
+                } else {
+                    $order->data = json_encode($payuResponse);
+                    $order->save();
+                    return redirect(route('checkout.error'));
                 }
             } else {
-                die('Ocurrió un error mientras se procesaba el pago');
+                $order->data = json_encode($payuResponse);
+                $order->save();
+                return redirect(route('checkout.error'));
             }
         } catch (\Exception $ex) {
-            $order->data = $ex->getMessage();
+            $order->data = json_encode($payuResponse);
             $order->save();
-            die($ex->getMessage());
+            return redirect(route('checkout.error'));
         }
     }
 
@@ -109,6 +115,11 @@ class CheckoutController extends Controller
         $this->user()->carts()->delete();
 
         return true;
+    }
+
+    public function error()
+    {
+        return view('site.checkout.error');
     }
 
 }

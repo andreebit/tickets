@@ -42,7 +42,8 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/agregar-carrito/{price_id}', ['as' => 'cart.add', 'uses' => 'CartController@add']);
         Route::get('/eliminar-carrito/{cart_id}', ['as' => 'cart.delete', 'uses' => 'CartController@delete']);
         Route::get('/checkout', ['as' => 'checkout.index', 'uses' => 'CheckoutController@index']);
-        Route::get('/checkout/completar', ['as' => 'checkout.complete', 'uses' => 'CheckoutController@complete']);
+        Route::post('/checkout/completar', ['as' => 'checkout.complete', 'uses' => 'CheckoutController@complete']);
+        Route::get('/checkout/error', ['as' => 'checkout.error', 'uses' => 'CheckoutController@error']);
         Route::get('/mis-pedidos', ['as' => 'user.orders', 'uses' => 'UserController@orders']);
     });
 });

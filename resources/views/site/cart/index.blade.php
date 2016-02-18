@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-xs-12">
             <h2>Carrito</h2>
-            <table class="table table-striped">
+            <table class="table table-striped table-responsive">
                 <thead>
                     <tr>
                         <th>Entrada</th>
