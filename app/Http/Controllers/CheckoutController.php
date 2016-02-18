@@ -27,12 +27,12 @@ class CheckoutController extends Controller
         }
 
         $payuResponse = "";
+        $order = new \App\Order();
+        $order->user_id = $this->user()->id;
+        $order->date_time = date('Y-m-d H:i:s');
+        $order->save();
+        
         try {
-
-            $order = new \App\Order();
-            $order->user_id = $this->user()->id;
-            $order->date_time = date('Y-m-d H:i:s');
-            $order->save();
 
             //documentación
             //http://developers.payulatam.com/es/api/sandbox.html
@@ -81,16 +81,19 @@ class CheckoutController extends Controller
                     }
                 } else {
                     $order->data = json_encode($payuResponse);
+                    $order->status = 'error';
                     $order->save();
                     return redirect(route('checkout.error'))->with('order', $order);
                 }
             } else {
                 $order->data = json_encode($payuResponse);
+                $order->status = 'error';
                 $order->save();
                 return redirect(route('checkout.error'))->with('order', $order);
             }
         } catch (\Exception $ex) {
             $order->data = $ex->getMessage();
+            $order->status = 'error';
             $order->save();
             return redirect(route('checkout.error'))->with('order', $order);
         }
@@ -99,6 +102,7 @@ class CheckoutController extends Controller
     private function generateTickets(\App\Order $order, $payuResponse)
     {
         $order->data = json_encode($payuResponse);
+        $order->status = 'success';
         $order->save();
 
         $carts = $this->user()->carts()->get();
