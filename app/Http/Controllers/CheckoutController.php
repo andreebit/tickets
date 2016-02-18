@@ -111,6 +111,8 @@ class CheckoutController extends Controller
             $ticket->quantity = $cart->quantity;
             $ticket->unique = ('871fd7278c6b07b7a9777c42ab3a1a55' . md5($order->id) . md5($cart->price->event->id) . md5($cart->price->id));
             $ticket->save();
+
+            \QrCode::format('png')->size(250)->generate($ticket->unique, public_path('qrcodes/' . $ticket->unique . '.png'));
         }
         $this->user()->carts()->delete();
 
