@@ -13,11 +13,11 @@
 
 $prefix = 'api/v1';
 Route::group(['namespace' => 'Api', 'prefix' => $prefix], function() {
-    Route::resource('categories', 'CategoryController');
-    Route::resource('events', 'EventController');
-    Route::resource('prices', 'PriceController');
-    Route::resource('tickets', 'TicketController');
-    Route::resource('users', 'UserController');
+    Route::post('/usuarios/acceder', ['as' => 'user.login', 'uses' => 'UserController@login']);
+    Route::resource('/categories', 'CategoryController');
+    Route::resource('/events', 'EventController');
+    Route::resource('/prices', 'PriceController');
+    Route::resource('/tickets', 'TicketController');    
 });
 
 /*
