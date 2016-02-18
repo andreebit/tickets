@@ -15,7 +15,7 @@
                 <tbody>
                     @foreach($orders as $order)
                     <tr>
-                        <td>{{ $order->id }}</td>
+                        <td>PED{{ str_pad($order->id, 10, '0', STR_PAD_LEFT) }}</td>
                         <td>{{ $order->date_time }}</td>
                     </tr>
                     <tr>
