@@ -82,17 +82,17 @@ class CheckoutController extends Controller
                 } else {
                     $order->data = json_encode($payuResponse);
                     $order->save();
-                    return redirect(route('checkout.error'));
+                    return redirect(route('checkout.error'))->with('order', $order);
                 }
             } else {
                 $order->data = json_encode($payuResponse);
                 $order->save();
-                return redirect(route('checkout.error'));
+                return redirect(route('checkout.error'))->with('order', $order);
             }
         } catch (\Exception $ex) {
-            $order->data = json_encode($payuResponse);
+            $order->data = $ex->getMessage();
             $order->save();
-            return redirect(route('checkout.error'));
+            return redirect(route('checkout.error'))->with('order', $order);
         }
     }
 
@@ -117,9 +117,14 @@ class CheckoutController extends Controller
         return true;
     }
 
-    public function error()
+    public function error(Request $request)
     {
-        return view('site.checkout.error');
+        $order = $request->session()->get('order', null);
+        if (!is_null($order)) {
+            return view('site.checkout.error', ['order' => $order]);
+        } else {
+            return redirect(route('home.index'));
+        }
     }
 
 }
