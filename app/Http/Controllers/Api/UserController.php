@@ -18,7 +18,7 @@ class UserController extends Controller
         if (\Auth::once(['email' => $email, 'password' => $password])) {
             return response()->json(['status' => 'success', 'message' => '', 'token' => \Auth::user()->token]);
         } else {
-            return response()->json(['status' => 'error', 'message' => '']);
+            return response()->json(['status' => 'error', 'message' => 'Email o contraseña incorrectos', "data" => ['email' => $email, 'password' => $password]]);
         }
     }
 
