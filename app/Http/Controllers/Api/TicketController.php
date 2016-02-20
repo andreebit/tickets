@@ -51,12 +51,12 @@ class TicketController extends Controller
             if ($ticket->status == "enabled") {
                 $ticket->status = "disabled";
                 $ticket->save();
-                return response()->json(["message" => "Ticket válido. Permita el ingreso."]);
+                return response()->json(["message" => "Ticket válido: [" . $ticket->description . " - " . $ticket->quantity . " personas]."]);
             } else {
-                return response()->json(["message" => "Ticket ya utilizado."]);
+                return response()->json(["message" => "Ticket ya fue utilizado."]);
             }
         } else {
-            return response()->json(["message" => "Código incorrecto"]);
+            return response()->json(["message" => "Código incorrecto."]);
         }
     }
 

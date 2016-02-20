@@ -24,6 +24,7 @@ class OrderController extends Controller
             $orders = $user->orders()
                     ->whereStatus('success')
                     ->select('id', \DB::raw('CONCAT("PED", LPAD(id, 10, 0)) as number'), 'date_time')
+                    ->orderBy('id', 'desc')
                     ->get();
             
             return response()->json(['status' => 'success', 'message' => '', 'data' => $orders]);
