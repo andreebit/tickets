@@ -16,6 +16,7 @@ Route::group(['namespace' => 'Api', 'prefix' => $prefix, 'middleware' => 'api.ke
     Route::post('/usuarios/acceder', ['as' => 'user.login', 'uses' => 'UserController@login']);
     Route::get('/orders', ['as' => 'order.index', 'uses' => 'OrderController@index']);
     Route::get('/tickets', ['as' => 'ticket.index', 'uses' => 'TicketController@index']);
+    Route::get('/tickets/validar', ['as' => 'ticket.check', 'uses' => 'TicketController@check']);
 });
 
 /*
