@@ -28,16 +28,35 @@ class TicketController extends Controller
                     'id' => $ticket->id,
                     'event' => $ticket->event->name,
                     'description' => $ticket->description,
-                    'price' => $ticket->price,                    
+                    'price' => $ticket->price,
                     'quantity' => $ticket->quantity,
                     'qr' => asset('qrcodes/' . $ticket->unique . '.png'),
                     'status' => $ticket->status
                 ];
             }
-            
+
             return response()->json(['status' => 'success', 'message' => '', 'data' => $data]);
         } else {
             return response()->json(['status' => 'error', 'message' => 'no se encontró pedido con el id especificado']);
+        }
+    }
+
+    public function check(Request $request)
+    {
+        $code = $request->get('code', '');
+
+        $ticket = \App\Ticket::whereUnique($code)->first();
+
+        if (!is_null($ticket)) {
+            if ($ticket->status == "enabled") {
+                $ticket->status = "disabled";
+                $ticket->save();
+                return response()->json(["message" => "Ticket válido. Permita el ingreso."]);
+            } else {
+                return response()->json(["message" => "Ticket ya utilizado."]);
+            }
+        } else {
+            return response()->json(["message" => "Código incorrecto"]);
         }
     }
 
