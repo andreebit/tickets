@@ -21,4 +21,8 @@ class Order extends Model
     public function scopeWithTickets($query) {
         $query->has('tickets');
     }
+    
+    public function getNumberAttribute() {
+        return "PED" . str_pad($this->id, 10, '0', STR_PAD_LEFT);
+    }
 }

@@ -13,7 +13,7 @@ class CheckoutController extends Controller
     {
         $carts = \App\Cart::whereUserId($this->user()->id)->get();
         if (!count($carts)) {
-            return redirect()->back();
+            return redirect(route('home.index'));
         }
         return view('site.checkout.index', compact('carts'));
     }
@@ -23,7 +23,7 @@ class CheckoutController extends Controller
 
         $carts = \App\Cart::whereUserId($this->user()->id)->get();
         if (!count($carts)) {
-            return redirect()->back();
+            return redirect(route('home.index'));
         }
 
         $payuResponse = "";
@@ -76,7 +76,10 @@ class CheckoutController extends Controller
             $payuResponse = \PayUPayments::doAuthorizationAndCapture($parameters);
             if (isset($payuResponse->code) && $payuResponse->code == 'SUCCESS') {
                 if (isset($payuResponse->transactionResponse->state) && $payuResponse->transactionResponse->state == 'APPROVED') {
-                    if ($this->generateTickets($order, $payuResponse)) {
+                    if ($this->generateTickets($order, $payuResponse)) {                        
+                       \Mail::queue('email.order', ['order' => $order], function ($message) use($order) {
+                            $message->to($order->user->email);
+                        });
                         return redirect(route('user.orders'));
                     }
                 } else {

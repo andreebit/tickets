@@ -15,4 +15,7 @@ return array(
     $vendorDir . '/paragonie/random_compat/lib/random.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
+    $vendorDir . '/guzzlehttp/promises/src/functions_include.php',
+    $vendorDir . '/guzzlehttp/psr7/src/functions_include.php',
+    $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
 );

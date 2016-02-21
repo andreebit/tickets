@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "frozennode/administrator": "5.*",
         "maatwebsite/excel": "~2.1.0",
-        "simplesoftwareio/simple-qrcode": "1.3.*"
+        "simplesoftwareio/simple-qrcode": "1.3.*",
+        "guzzlehttp/guzzle": "~5.3|~6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
