@@ -53,7 +53,7 @@ class CheckoutController extends Controller
 
 
             //Parámetros básicos de pago
-            $prefix = (env('APP_ENV') == 'production') ? 'PED' : 'TEST';
+            $prefix = (env('APP_ENV') == 'production') ? 'PED' : 'TEST' . rand(100, 999);
             $parameters = array(
                 \PayUParameters::REFERENCE_CODE => $prefix . str_pad($order->id, 10, '0', STR_PAD_LEFT),
                 \PayUParameters::COUNTRY => \PayUCountries::PE,

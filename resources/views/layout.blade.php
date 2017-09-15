@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-9">
                             <a href="/">
-                                <h2>Pase Libre</h2>
+                                <h2>Ticketland</h2>
                                 <h5>Compra y disfruta</h5>
                             </a>
                         </div>
