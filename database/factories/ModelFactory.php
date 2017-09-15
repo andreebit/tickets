@@ -43,7 +43,7 @@ $factory->define(App\Event::class, function (Faker\Generator $faker) {
 $factory->define(App\Price::class, function (Faker\Generator $faker) {
     return [
         'event_id' => null,
-        'value' => $faker->numberBetween(50, 1000),
+        'value' => $faker->numberBetween(50, 200),
         'description' => $faker->words(2, true)
     ];
 });
