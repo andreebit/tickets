@@ -37,7 +37,7 @@ class Event extends Model
 
     public static function getComingSoonEvents()
     {
-        return self::where('date_hour', '>', date('Y-m-d H:i:s'))->orderBy('date_hour')->limit(10)->get();
+        return self::where('date_hour', '>', date('Y-m-d H:i:s'))->orderBy('date_hour')->limit(12)->get();
     }
 
     public function imageFullPath()

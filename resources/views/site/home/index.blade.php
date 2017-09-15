@@ -15,7 +15,7 @@
             <div class="carousel-inner" role="listbox">
                 @foreach($slides as $index => $slide)
                 <div class="item {{ ($index == 0)? 'active' : '' }}">
-                    <a href="{{ $slide->url }}"><img class="img-responsive img-full-width" src="{{ $slide->imageFullPath() }}" alt="{{ $slide->title }}"></a>
+                    <a href="{{ $slide->url }}"><img class="img-responsive img-full-width" src="{{ $slide->image }}" alt="{{ $slide->title }}"></a>
                     <div class="carousel-caption">
                         {{ $slide->title }}
                     </div>
@@ -52,7 +52,7 @@
                     <div class="event-container">
                         <a href="{{ route('events.show', ['slug' => $event->slug]) }}">
                             <h4 class="title-event">{{ $event->name }}</h4>
-                            <img class="img-responsive" src="{{ $event->imageFullPath() }}" alt="{{ $event->name }}">
+                            <img class="img-responsive" src="{{ $event->image }}" alt="{{ $event->name }}">
                             <p class="date-event">{{ $event->formattedTime() }}</p>
                             <p>{{ $event->place }}</p>
                         </a>

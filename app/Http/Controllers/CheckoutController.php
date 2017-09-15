@@ -42,7 +42,7 @@ class CheckoutController extends Controller
             require_once '../resources/libs/payu/PayU.php';
 
             //URL de Pagos
-            \Environment::setPaymentsCustomUrl("https://stg.api.payulatam.com/payments-api/4.0/service.cgi");
+            \Environment::setPaymentsCustomUrl("https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi");
 
 
             \PayU::$apiKey = "6u39nqhq8ftd0hlvnjfs66eh8c";

@@ -22,7 +22,10 @@ class DatabaseSeeder extends Seeder
         $this->call(EventTableSeeder::class);
         
         $this->command->info('Registrando precios');
-        $this->call(PriceTableSeeder::class);        
+        $this->call(PriceTableSeeder::class);
+
+        $this->command->info('Registrando sliders');
+        $this->call(SliderTableSeeder::class);
     }
 
 }

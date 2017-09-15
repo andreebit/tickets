@@ -11,6 +11,10 @@ class PriceTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $events = \App\Event::all();
+
+        foreach ($events as $event) {
+            factory(App\Price::class, rand(2, 4))->create(['event_id' => $event->id]);
+        }
     }
 }

@@ -16,7 +16,7 @@ class CreateTicketsTable extends Migration
             $table->increments('id');
             $table->integer('event_id')->unsigned();            
             $table->integer('order_id')->unsigned();
-            $table->integer('price_id')->unsigned();
+            //$table->integer('price_id')->unsigned();
             $table->string('description');
             $table->decimal('price', 10, 2);            
             $table->integer('quantity');
@@ -25,7 +25,7 @@ class CreateTicketsTable extends Migration
             
             $table->foreign('event_id')->references('id')->on('events');
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('price_id')->references('id')->on('prices');
+            //$table->foreign('price_id')->references('id')->on('prices');
         });
     }
 

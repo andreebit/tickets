@@ -19,7 +19,7 @@
                     <div class="event-container">
                         <a href="{{ route('events.show', ['slug' => $event->slug]) }}">
                             <h4 class="title-event">{{ $event->name }}</h4>
-                            <img class="img-responsive" src="{{ $event->imageFullPath() }}" alt="{{ $event->name }}">
+                            <img class="img-responsive" src="{{ $event->image }}" alt="{{ $event->name }}">
                             <p class="date-event">{{ $event->formattedTime() }}</p>
                             <p>{{ $event->place }}</p>
                         </a>

@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <img src="{{ $event->imageFullPath() }}" class="img-responsive">
+                        <img src="{{ $event->image }}" class="img-responsive">
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
@@ -93,7 +93,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="//maps.google.com/maps/api/js"></script>
+<script type="text/javascript" src="//maps.google.com/maps/api/js?key=AIzaSyCmtzzGjJtvA_dhYHlOPzdgVE7BpBOXdkM"></script>
 <script type="text/javascript" src="{{ asset('assets/js/gmaps.min.js') }}"></script>
 <script type="text/javascript">
 var map = new GMaps({
@@ -106,7 +106,7 @@ map.addMarker({
     lng: {{$event->longitude}},
     title: '{{ $event->place }}',
     infoWindow: {
-        content: '{{ $event->address }}'
+        content: '{{ trim(preg_replace('/\s+/', ' ', $event->address)) }}'
     }
 });
 </script>
