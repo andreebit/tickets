@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => "info@ticketland.pe", 'name' => "Pase Libre"],
+    'from' => ['address' => "info@ticketland.pe", 'name' => "Ticketland"],
 
     /*
     |--------------------------------------------------------------------------

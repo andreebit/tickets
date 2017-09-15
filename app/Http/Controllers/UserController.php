@@ -11,7 +11,7 @@ class UserController extends Controller
 
     public function autologin()
     {
-        \Auth::attempt(['email' => 'juanperez@upc.edu.pe', 'password' => '123456']);
+        \Auth::attempt(['email' => 'andree.bit@gmail.com', 'password' => '123456']);
         return redirect()->back();
     }
 
