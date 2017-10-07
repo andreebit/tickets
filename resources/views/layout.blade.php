@@ -36,8 +36,8 @@
                                 </div>
                             @else
                                 <div>
-                                    <a href="{{ route('user.register') }}" class="login-link btn btn-default col-xs-12 col-sm-6" >Registro</a>
-                                    <a href="{{ route('user.login') }}" class="login-link btn btn-warning col-xs-12 col-sm-6">Iniciar Sesión</a>
+                                    <a href="{{ route('user.register') }}" class="login-link btn btn-default col-xs-6" >Registro</a>
+                                    <a href="{{ route('user.login') }}" class="login-link btn btn-warning col-xs-6">Iniciar Sesión</a>
                                 </div>
                             @endif
                         </div>

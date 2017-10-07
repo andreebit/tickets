@@ -36,7 +36,7 @@ class UserController extends Controller
                 $user = new User();
                 $user->name = $request->get('name');
                 $user->email = $request->get('email');
-                $user->password = $request->get('password');
+                $user->password = \Hash::make($request->get('password'));
                 $user->token = uniqid('', true);
                 $user->save();
                 return redirect(route('user.login'));
