@@ -18,7 +18,7 @@
                         <label for="exampleInputPassword1">Contraseña</label>
                         <input name="password" type="password" class="form-control" placeholder="Contraseña" required>
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-success">Entrar</button>
                 </form>
             </div>
         </div>
