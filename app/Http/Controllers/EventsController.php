@@ -29,6 +29,7 @@ class EventsController extends Controller
     public function listByCategory($slug)
     {
         $category = Category::slug($slug)->withEvents()->first();
+
         if (!is_null($category)) {
             $data = [
                 'category' => $category,

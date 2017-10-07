@@ -37,12 +37,28 @@
 <div class="container home-main-container">
     <div class="row">
         <div class="col-xs-12 col-sm-3">
-            <h3>Categorías</h3>
-            <ul class="nav nav-pills nav-stacked">
-                @foreach($categories as $category)
-                <li role="presentation" class="active"><a href="{{ route('events.list-by-category', ['slug' => $category->slug]) }}">{{ $category->name }}</a></li>
-                @endforeach
-            </ul>            
+            <div class="hidden-xs">
+                <h3>Categorías</h3>
+                <ul class="nav nav-pills nav-stacked">
+                    @foreach($categories as $category)
+                        <li role="presentation" class="active"><a href="{{ route('events.list-by-category', ['slug' => $category->slug]) }}">{{ $category->name }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="hidden-sm hidden-md hidden-lg">
+                <!-- Single button -->
+                <div class="btn-group" style="width: 100%; margin-top: 10px;">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+                        Categorías <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" style="width: 100%;">
+                        @foreach($categories as $category)
+                            <li><a href="{{ route('events.list-by-category', ['slug' => $category->slug]) }}">{{ $category->name }}</a></li>
+                            <li role="separator" class="divider"></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-xs-12 col-sm-9">
             <h3>Próximos eventos</h3>
