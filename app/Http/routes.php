@@ -34,6 +34,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
     Route::get('/c/{slug}', ['as' => 'events.list-by-category', 'uses' => 'EventsController@listByCategory']);
     Route::get('/e/{slug}', ['as' => 'events.show', 'uses' => 'EventsController@show']);
+    Route::any('/iniciar-sesion', ['as' => 'user.login', 'uses' => 'UserController@login']);
+    Route::any('/registro', ['as' => 'user.register', 'uses' => 'UserController@register']);
     Route::get('/acceder', ['as' => 'user.autologin', 'uses' => 'UserController@autologin']);
     Route::group(['middleware' => 'auth'], function() {
         Route::get('/salir', ['as' => 'user.logout', 'uses' => 'UserController@logout']);

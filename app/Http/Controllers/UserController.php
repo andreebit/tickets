@@ -2,12 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+
+    public function login(Request $request) {
+        $user = \Auth::user();
+        if(!is_null($user)) {
+            return redirect(route('home.index'));
+        }
+
+        if($request->method() == 'POST') {
+            if(\Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')])) {
+                return redirect(route('home.index'));
+            } else {
+                return redirect(route('user.login'))->with('error_login', true);
+            }
+        } else {
+            return view('site.user.login');
+        }
+    }
+
+    public function register(Request $request) {
+        $user = \Auth::user();
+        if(!is_null($user)) {
+            return redirect(route('home.index'));
+        }
+
+        if($request->method() == 'POST') {
+            try {
+                $user = new User();
+                $user->name = $request->get('name');
+                $user->email = $request->get('email');
+                $user->password = $request->get('password');
+                $user->token = uniqid('', true);
+                $user->save();
+                return redirect(route('user.login'));
+            } catch (\Exception $exception) {
+                return redirect(route('user.register'))->with('error_register', true);
+            }
+        } else {
+            return view('site.user.register');
+        }
+    }
 
     public function autologin()
     {
@@ -18,7 +57,7 @@ class UserController extends Controller
     public function logout()
     {
         \Auth::logout();
-        return redirect()->back();
+        return redirect(route('user.login'));
     }
 
     public function orders()
