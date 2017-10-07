@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-sm-push-3">
-                <h2>Iniciar sesión</h2>
-                @if(session()->has('error_login'))
+                <h2>Registro</h2>
+                @if(session()->has('error_register'))
                 <p style="color: red; margin: 20px 0px">Ocurrió un error en el registro</p>
                 @endif
                 <form action="" method="post">
@@ -22,7 +22,7 @@
                         <label for="exampleInputPassword1">Contraseña</label>
                         <input name="password" type="password" class="form-control" placeholder="Contraseña" required>
                     </div>
-                    <button type="submit" class="btn btn-success">Regístrate</button>
+                    <button type="submit" class="btn btn-success">Registrarse</button>
                 </form>
             </div>
         </div>
